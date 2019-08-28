@@ -139,10 +139,10 @@ namespace Trabajo_de_complegidad
     }
     public class OperacionesArbol
     {
-        public int altura(ArbolGeneral<T> arbol)
-        {
-            return 1;
-        }
+        //public int altura(ArbolGeneral<T> arbol)
+        //{
+        //    return 1;
+        //}
     }
 
 }
