@@ -72,7 +72,27 @@ namespace ABB
 
         public void agregar(IComparable elem)
         {
-
+            NodoBinario nuevo;
+            nuevo = new NodoBinario(elem);
+           if (raiz == null)
+            {
+                raiz = nuevo;
+            }
+            else
+            {
+                NodoBinario anterior = null, reco;
+                reco = raiz;
+                while (reco != null)
+                {
+                    anterior = reco;
+                    if (Convert.ToInt32(elem) < Convert.ToInt32(reco.getDato()))
+                    {
+                        nuevo.setHijoIzquierdo(reco);
+                    }
+                    else
+                        nuevo.setHijoIzquierdo(reco);
+                }
+            }
         }
 
 
