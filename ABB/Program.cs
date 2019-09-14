@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
-namespace Trabajo_de_complegidad
+namespace ABB
 {
     class Program
     {
@@ -10,5 +9,4 @@ namespace Trabajo_de_complegidad
             Console.WriteLine("Hello World!");
         }
     }
-    
 }
