@@ -86,7 +86,7 @@ namespace Trabajo_de_complegidad
                 foreach (ArbolGeneral<T> h in getHijos())
                     
                 {
-                    h
+                   
                 }
             }
             return 0;
