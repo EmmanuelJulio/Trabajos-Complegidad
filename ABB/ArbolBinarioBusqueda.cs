@@ -141,17 +141,22 @@ namespace ABB
         {
         }
 
-        public void inorden(NodoBinario Recor)
+        public void ImprimirInorden(NodoBinario Recor)
         {
             if (Recor != null){
-                inorden(Recor.getHijoIzquierdo());
-                Console.WriteLine(Recor.getDato() + " ");
-                inorden(Recor.getHijoDerecho());
+                if (Recor.TieneHijoIsq(Recor))
+                {
+                    int dato = Convert.ToInt32(Recor.getHijoIzquierdo().getDato());
+                    Console.WriteLine(dato);
+                }
+                Console.WriteLine(Convert.ToInt32(Recor.getHijoDerecho().getDato()));
+                    
+
             }
         }
-        public void inorden()
+        public void ImprimirInorden()
         {
-            inorden(this.raiz);
+            ImprimirInorden(this.raiz);
             Console.WriteLine();
         }
 
