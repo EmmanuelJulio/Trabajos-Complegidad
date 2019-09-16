@@ -7,6 +7,7 @@ namespace ABB
     public class ArbolBinarioBusqueda
     {
         public NodoBinario raiz;
+        private int cant;
 
         public ArbolBinarioBusqueda()
         {
@@ -88,7 +89,7 @@ namespace ABB
                     else
                         reco = reco.getHijoDerecho();
                 }
-                if (elem.CompareTo(anterior.getDato()) > 0)
+                if (elem.CompareTo(anterior.getDato()) < 0)
                     anterior.setHijoIzquierdo(Nuevo);
                 else
                     anterior.setHijoDerecho(Nuevo);
@@ -96,46 +97,46 @@ namespace ABB
             }
         }
 
-        public bool incluye(IComparable elem)
+
+        public bool incuye (IComparable dato)
         {
-            if (this.getDatoRaiz().Equals(elem))
+            NodoBinario reco = this.raiz;
+            while (reco != null)
             {
-                return true;
-            }
-            else
-            {
-                if (this.EsHoja(elem))
-                {
-                    return false;
-                }
+                if (dato.CompareTo(reco.getDato()) == 0)
+                    return true;
                 else
                 {
-                    if (this.getHijoIzquierdo() != null)
-                    {
-                        return this.getHijoIzquierdo().incluye(elem);
-                    }
-                    if (this.getHijoDerecho() != null)
-                    {
-                        return this.getHijoDerecho().incluye(elem);
-                    }
-                    return true;
+                    if (dato.CompareTo(reco.getDato()) < 0)
+                        reco = reco.getHijoIzquierdo();
+                    else
+                        reco = reco.getHijoDerecho();
                 }
+               
             }
-
+            return false;
         }
-        public bool EsHoja(IComparable element)
+       
+        public void ContarHojas(NodoBinario arbol)
         {
-            if(this.getHijoDerecho()==null & this.getHijoIzquierdo() == null)
+          if(arbol != null)
             {
 
-                return true;
+                if (arbol.getHijoIzquierdo() == null && arbol.getHijoDerecho() == null)
+                    cant++;
+
+                    ContarHojas(arbol.getHijoIzquierdo());
+                    ContarHojas(arbol.getHijoDerecho());
+                
             }
-            else
-            {
-                return false;
-            }
+           
+        } 
+        public int ContarHojas()
+        {
+            
+            ContarHojas(this.raiz);
+            return cant;
         }
-
 
         public void preorden()
         {
@@ -143,27 +144,49 @@ namespace ABB
 
         public void ImprimirInorden(NodoBinario Recor)
         {
-            if (Recor != null){
-                if (Recor.TieneHijoIsq(Recor))
-                {
-                    int dato = Convert.ToInt32(Recor.getHijoIzquierdo().getDato());
-                    Console.WriteLine(dato);
-                }
-                Console.WriteLine(Convert.ToInt32(Recor.getHijoDerecho().getDato()));
-                    
-
+           if (Recor != null)
+            {
+                ImprimirInorden(Recor.getHijoIzquierdo());
+               
+                Console.Write(Recor.getDato()+ " " );
+               
+                ImprimirInorden(Recor.getHijoDerecho());
             }
+            
+
+
         }
         public void ImprimirInorden()
         {
             ImprimirInorden(this.raiz);
-            Console.WriteLine();
         }
-
-        public void postorden()
+        
+        public void ImprimirPreorden()
         {
+            ImprimirPreorden(this.raiz);
         }
-
-
+        public void ImprimirPreorden(NodoBinario recor)
+        {
+            if (recor != null)
+            {
+                Console.Write(recor.getDato()+ " ");
+                ImprimirPreorden(recor.getHijoIzquierdo());
+                ImprimirPreorden(recor.getHijoDerecho());
+            }
+            
+        }
+        public void ImprimirPostOrden(NodoBinario recor)
+        {
+           if(recor != null)
+            {
+                ImprimirPostOrden(recor.getHijoIzquierdo());
+                ImprimirPostOrden(recor.getHijoDerecho());
+                Console.Write(recor.getDato()+ " ");
+            }
+        }
+        public void ImprimirPostOrden()
+        {
+            ImprimirPostOrden(this.raiz);
+        }
     }
 }

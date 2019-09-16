@@ -19,9 +19,66 @@ namespace ABB
             abb.agregar(6);
             abb.agregar(2);
             abb.agregar(7);
-            abb.ImprimirInorden();
-            Console.ReadKey();
-            Console.WriteLine("Hello World!");
+            Program.Opciones(abb);
+        }
+        static void Opciones(ArbolBinarioBusqueda abb)
+        {
+            Console.WriteLine("");
+
+            Console.WriteLine("1. Agregar elemento");
+            Console.WriteLine("2. Recorrido Inorden");
+            Console.WriteLine("3. Recorrido Preorden");
+            Console.WriteLine("4. Recorrido Post");
+            Console.WriteLine("5. Buscar en arbol");
+            Console.WriteLine("6. Contar Hojas");
+            int opcion;
+            opcion = Convert.ToInt32(Console.ReadLine());
+            try
+            {
+                switch (opcion)
+                {
+                    case 1:
+                        Console.WriteLine("ingrese un elemento comparable");
+                        int elemento = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            abb.agregar(elemento);
+                            Console.WriteLine("se agrego" + " " + elemento);
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
+                        break;
+                    case 2:
+                        abb.ImprimirInorden();
+                        break;
+                    case 3:
+                        abb.ImprimirPreorden();
+                        break;
+                    case 4:
+                        abb.ImprimirPostOrden();
+                        break;
+                    case 5:
+                        Console.WriteLine("ingrese un elemento comparable Para buscarlo");
+                        int elemento2 = Convert.ToInt32(Console.ReadLine());
+                        if (abb.incuye(elemento2))
+                            Console.WriteLine("el elemento existe");
+                        else
+                            Console.WriteLine("el elemento no se encontro en el arbol");
+                        break;
+                    case 6:
+                       Console.WriteLine("El arbol tiene "+ abb.ContarHojas() + " hojas");
+                        break;
+                }
+            }
+            catch (Exception err)
+            {
+
+                Console.WriteLine("seleccione una opcion correcta " +err.Message);
+            }
+            Program.Opciones(abb);
         }
     }
 }

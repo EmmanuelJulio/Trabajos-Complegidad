@@ -50,9 +50,9 @@ namespace ABB
         ///////////////////////
         ////Cosas agregadas por mi
         ///
-        public bool TieneHijoIsq(NodoBinario nod)
+        public bool TieneHijoIsq()
         {
-            if(nod.getHijoIzquierdo() != null)
+            if(this.getHijoIzquierdo() != null)
             {
                 return true;
             }
@@ -71,6 +71,21 @@ namespace ABB
             {
                 return false;
             }
+        }
+        public IComparable DatoHijoIsquierdo()
+        {
+           return this.getHijoIzquierdo().getDato();
+        }
+        public IComparable DatoHijoDerecho()
+        {
+            return this.getHijoDerecho().getDato();
+        }
+        public bool EsHoja( )
+        {
+            if (this.getHijoDerecho() == null & this.getHijoIzquierdo() == null)
+                return true;
+            else
+                return false;
         }
     }
 }
