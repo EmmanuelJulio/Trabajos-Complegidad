@@ -76,40 +76,25 @@ namespace ABB
             Nuevo = new NodoBinario(elem);
             if (raiz == null)
                 raiz = Nuevo;
-            else
+            else  
             {
                 NodoBinario anterior = null, reco;
                 reco = raiz;
-                while(reco != null)
+               while (reco != null)
                 {
                     anterior = reco;
-                   
-                    if(Convert.ToInt32(elem) < Convert.ToInt32(this.getRaiz().getDato()))
-                    {
-
-                       reco.setHijoIzquierdo(reco);
+                    if (elem.CompareTo(reco.getDato()) < 0)
                         reco = reco.getHijoIzquierdo();
-                    }
                     else
-                    {
-                        reco.setHijoDerecho(reco);
                         reco = reco.getHijoDerecho();
-                    }
-                    
                 }
-                if (Convert.ToInt32(elem) > Convert.ToInt32(reco.getDato()))
-                {
+                if (elem.CompareTo(anterior.getDato()) > 0)
                     anterior.setHijoIzquierdo(Nuevo);
-                    anterior = Nuevo.getHijoIzquierdo();
-                }
                 else
-                {
                     anterior.setHijoDerecho(Nuevo);
-                    anterior = anterior.getHijoDerecho();
-                }
+
             }
         }
-
 
         public bool incluye(IComparable elem)
         {
