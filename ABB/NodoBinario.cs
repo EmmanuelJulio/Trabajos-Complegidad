@@ -47,5 +47,30 @@ namespace ABB
         {
             this.hijoDerecho = hijoDer;
         }
+        ///////////////////////
+        ////Cosas agregadas por mi
+        ///
+        public bool TieneHijoIsq(NodoBinario nod)
+        {
+            if(nod.getHijoIzquierdo() != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool TieneHijoDer(NodoBinario nod)
+        {
+            if (nod.getHijoDerecho() != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

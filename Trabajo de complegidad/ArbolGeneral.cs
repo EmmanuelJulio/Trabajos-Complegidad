@@ -101,14 +101,10 @@ namespace Trabajo_de_complegidad
         public bool include (T dato)
         {
             if (this.getDatoRaiz().Equals(dato))
-            {
                 return true;
-
-            }
-            else
-            {
-                return false;
-            }
+            else {
+                if (this.)
+                 }
             
         }
     }

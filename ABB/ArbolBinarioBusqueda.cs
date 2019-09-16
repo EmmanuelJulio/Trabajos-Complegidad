@@ -6,7 +6,7 @@ namespace ABB
 {
     public class ArbolBinarioBusqueda
     {
-        private NodoBinario raiz;
+        public NodoBinario raiz;
 
         public ArbolBinarioBusqueda()
         {
@@ -72,25 +72,40 @@ namespace ABB
 
         public void agregar(IComparable elem)
         {
-            NodoBinario nuevo;
-            nuevo = new NodoBinario(elem);
-           if (raiz == null)
-            {
-                raiz = nuevo;
-            }
+            NodoBinario Nuevo;
+            Nuevo = new NodoBinario(elem);
+            if (raiz == null)
+                raiz = Nuevo;
             else
             {
                 NodoBinario anterior = null, reco;
                 reco = raiz;
-                while (reco != null)
+                while(reco != null)
                 {
                     anterior = reco;
-                    if (Convert.ToInt32(elem) < Convert.ToInt32(reco.getDato()))
+                   
+                    if(Convert.ToInt32(elem) < Convert.ToInt32(this.getRaiz().getDato()))
                     {
-                        nuevo.setHijoIzquierdo(reco);
+
+                       reco.setHijoIzquierdo(reco);
+                        reco = reco.getHijoIzquierdo();
                     }
                     else
-                        nuevo.setHijoIzquierdo(reco);
+                    {
+                        reco.setHijoDerecho(reco);
+                        reco = reco.getHijoDerecho();
+                    }
+                    
+                }
+                if (Convert.ToInt32(elem) > Convert.ToInt32(reco.getDato()))
+                {
+                    anterior.setHijoIzquierdo(Nuevo);
+                    anterior = Nuevo.getHijoIzquierdo();
+                }
+                else
+                {
+                    anterior.setHijoDerecho(Nuevo);
+                    anterior = anterior.getHijoDerecho();
                 }
             }
         }
@@ -98,7 +113,42 @@ namespace ABB
 
         public bool incluye(IComparable elem)
         {
-            return false;
+            if (this.getDatoRaiz().Equals(elem))
+            {
+                return true;
+            }
+            else
+            {
+                if (this.EsHoja(elem))
+                {
+                    return false;
+                }
+                else
+                {
+                    if (this.getHijoIzquierdo() != null)
+                    {
+                        return this.getHijoIzquierdo().incluye(elem);
+                    }
+                    if (this.getHijoDerecho() != null)
+                    {
+                        return this.getHijoDerecho().incluye(elem);
+                    }
+                    return true;
+                }
+            }
+
+        }
+        public bool EsHoja(IComparable element)
+        {
+            if(this.getHijoDerecho()==null & this.getHijoIzquierdo() == null)
+            {
+
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
 
@@ -106,8 +156,18 @@ namespace ABB
         {
         }
 
+        public void inorden(NodoBinario Recor)
+        {
+            if (Recor != null){
+                inorden(Recor.getHijoIzquierdo());
+                Console.WriteLine(Recor.getDato() + " ");
+                inorden(Recor.getHijoDerecho());
+            }
+        }
         public void inorden()
         {
+            inorden(this.raiz);
+            Console.WriteLine();
         }
 
         public void postorden()
