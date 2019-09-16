@@ -7,10 +7,10 @@ namespace ABB
     public class ArbolBinarioBusqueda
     {
         public NodoBinario raiz;
-        private int cant;
+        private int cant, nivel;
+        List<NodoBinario> Encolados = new List<NodoBinario>();
 
-        public ArbolBinarioBusqueda()
-        {
+        public ArbolBinarioBusqueda()        {
             this.raiz = null;
         }
 
@@ -187,6 +187,22 @@ namespace ABB
         public void ImprimirPostOrden()
         {
             ImprimirPostOrden(this.raiz);
+        }
+        public void RecorrerPorNiveles(NodoBinario reco)
+        {
+            int nivel=0;
+            if (reco != null)
+                Encolados.Add(reco);
+
+
+            foreach (NodoBinario nod in Encolados)
+            {
+                Console.Write(nod.getDato() + " ");
+            }
+        }
+        public void RecorrerPorNiveles()
+        {
+            this.RecorrerPorNiveles(this.raiz);
         }
     }
 }

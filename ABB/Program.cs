@@ -16,9 +16,10 @@ namespace ABB
             //abb.agregar(64);
             abb.agregar(5);
             abb.agregar(4);
-            abb.agregar(6);
-            abb.agregar(2);
             abb.agregar(7);
+            abb.agregar(2);
+            abb.agregar(6);
+            abb.agregar(8);
             Program.Opciones(abb);
         }
         static void Opciones(ArbolBinarioBusqueda abb)
@@ -31,6 +32,7 @@ namespace ABB
             Console.WriteLine("4. Recorrido Post");
             Console.WriteLine("5. Buscar en arbol");
             Console.WriteLine("6. Contar Hojas");
+            Console.WriteLine("7. Contar entre niveles");
             int opcion;
             opcion = Convert.ToInt32(Console.ReadLine());
             try
@@ -70,6 +72,9 @@ namespace ABB
                         break;
                     case 6:
                        Console.WriteLine("El arbol tiene "+ abb.ContarHojas() + " hojas");
+                        break;
+                    case 7:
+                        abb.RecorrerPorNiveles();
                         break;
                 }
             }
