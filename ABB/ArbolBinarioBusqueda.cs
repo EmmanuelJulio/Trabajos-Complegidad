@@ -7,7 +7,7 @@ namespace ABB
     public class ArbolBinarioBusqueda
     {
         public NodoBinario raiz;
-        private int cant, nivel;
+        public static int cant, nivel;
         List<NodoBinario> Encolados = new List<NodoBinario>();
 
         public ArbolBinarioBusqueda()        {
@@ -136,6 +136,7 @@ namespace ABB
             
             ContarHojas(this.raiz);
             return cant;
+            
         }
 
         public void preorden()
@@ -192,7 +193,10 @@ namespace ABB
         {
             int nivel=0;
             if (reco != null)
+            {
                 Encolados.Add(reco);
+            }
+                
 
 
             foreach (NodoBinario nod in Encolados)

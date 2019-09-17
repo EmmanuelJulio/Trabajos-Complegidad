@@ -33,10 +33,15 @@ namespace ABB
             Console.WriteLine("5. Buscar en arbol");
             Console.WriteLine("6. Contar Hojas");
             Console.WriteLine("7. Contar entre niveles");
-            int opcion;
-            opcion = Convert.ToInt32(Console.ReadLine());
+           
+
+            
             try
             {
+                int opcion;
+                opcion = Convert.ToInt32(Console.ReadLine());
+
+                opcion = Convert.ToInt32(Console.ReadLine());
                 switch (opcion)
                 {
                     case 1:
@@ -72,6 +77,7 @@ namespace ABB
                         break;
                     case 6:
                        Console.WriteLine("El arbol tiene "+ abb.ContarHojas() + " hojas");
+                        ArbolBinarioBusqueda.cant= 0;
                         break;
                     case 7:
                         abb.RecorrerPorNiveles();
