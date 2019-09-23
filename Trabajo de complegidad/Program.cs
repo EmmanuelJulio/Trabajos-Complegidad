@@ -7,31 +7,29 @@ namespace Trabajo_de_complegidad
     {
         static void Main(string[] args)
         {
+            ArbolGeneral<int> raiz = new ArbolGeneral<int>(14);
+            ArbolGeneral<int> raiz2 = new ArbolGeneral<int>(15);
+            ArbolGeneral<int> raiz3 = new ArbolGeneral<int>(16);
+            ArbolGeneral<int> raiz4 = new ArbolGeneral<int>(17);
+            ArbolGeneral<int> raiz5 = new ArbolGeneral<int>(18);
+            ArbolGeneral<int> raiz6 = new ArbolGeneral<int>(19);
+            ArbolGeneral<int> raiz7 = new ArbolGeneral<int>(20);
 
-            NodoGeneral<int> raiz = new NodoGeneral<int>(14);
-            NodoGeneral<int> raiz2 = new NodoGeneral<int>(15);
-            NodoGeneral<int> raiz3 = new NodoGeneral<int>(16);
-            NodoGeneral<int> raiz4 = new NodoGeneral<int>(17);
-            NodoGeneral<int> raiz5 = new NodoGeneral<int>(18);
-            NodoGeneral<int> raiz6 = new NodoGeneral<int>(19);
-            NodoGeneral<int> raiz7 = new NodoGeneral<int>(20);
-            raiz.setHijos(raiz2);
-            raiz.setHijos(raiz3);
-            raiz.setHijos(raiz4);
-            raiz.setHijos(raiz5);
-            raiz.setHijos(raiz6);
-            raiz.setHijos(raiz7);
-            ArbolGeneral<NodoGeneral<int>> Arbol = new ArbolGeneral<NodoGeneral<int>>(raiz);
-            
+            ArbolGeneral<int> Arbol = new ArbolGeneral<int>(0);
+            Arbol.agregarHijo(raiz);
+            Arbol.agregarHijo(raiz2);
+            Arbol.agregarHijo(raiz3);
+            Arbol.agregarHijo(raiz4);
+            Arbol.agregarHijo(raiz5);
+            Arbol.agregarHijo(raiz6);
+            Arbol.agregarHijo(raiz7);
 
-            Console.WriteLine(Arbol.getDatoRaiz().getDato());
+
             Opciones(Arbol);
-            Console.ReadKey();
+           
         }
-        static void Opciones(ArbolGeneral<NodoGeneral<int>> abb)
+        static void Opciones(ArbolGeneral<int> abb)
         {
-            Console.WriteLine("");
-
             Console.WriteLine("1. Agregar elemento");
             Console.WriteLine("2. Recorrer todos los hijos");
             Console.WriteLine("3. Recorrido Preorden");
@@ -45,16 +43,28 @@ namespace Trabajo_de_complegidad
             try
             {
                 int opcion;
-               opcion = Convert.ToInt32(Console.ReadLine());
-
                 opcion = Convert.ToInt32(Console.ReadLine());
                 switch (opcion)
                 {
                     case 1:
                         Console.WriteLine("ingrese un elemento comparable");
                         int elemento = Convert.ToInt32(Console.ReadLine());
+                        Console.WriteLine("En que nodo padre?");
+                        int nodopadre = Convert.ToInt32(Console.ReadLine());
                         try
                         {
+                            foreach(ArbolGeneral<int> nodo in abb.getHijos())
+                            {
+                                if (nodo.getDatoRaiz() == nodopadre)
+                                {
+                                    ArbolGeneral<int> NuevoNodo = new ArbolGeneral<int>(elemento);
+                                    nodo.agregarHijo(NuevoNodo);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No se encontro el elemento padre para poder usarse como raiz");
+                                }
+                            }
                            
                         }
                         catch (Exception)
@@ -64,11 +74,14 @@ namespace Trabajo_de_complegidad
                         }
                         break;
                     case 2:
-                       foreach(ArbolGeneral<int> nodo in abb.getHijos())
+                        Console.WriteLine("");
+                        foreach (ArbolGeneral<int> nodo in abb.getHijos())
                         {
-                            nodo.getHijos();
+                            Console.Write(nodo.getDatoRaiz()+ " ");
+                            
                         }
-
+                         Console.WriteLine("");
+                        Console.WriteLine("");
                         break;
                     case 3:
                         

@@ -14,7 +14,7 @@ namespace Trabajo_de_complegidad
             this.raiz = new NodoGeneral<T>(dato);
         }
 
-        private ArbolGeneral(NodoGeneral<T> nodo)
+        public ArbolGeneral(NodoGeneral<T> nodo)
         {
             this.raiz = nodo;
         }
