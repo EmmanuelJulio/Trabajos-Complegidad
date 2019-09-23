@@ -30,9 +30,9 @@ namespace Trabajo_de_complegidad
             this.dato = dato;
         }
 
-        public void setHijos(List<NodoGeneral<T>> hijos)
+        public void setHijos(NodoGeneral<T> Hijo)
         {
-            this.hijos = hijos;
+            this.hijos.Add(Hijo);
         }
 
     }

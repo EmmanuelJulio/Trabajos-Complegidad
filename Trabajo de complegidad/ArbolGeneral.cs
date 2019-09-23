@@ -98,15 +98,15 @@ namespace Trabajo_de_complegidad
                 return ancho;
             }
           
-        public bool include (T dato)
-        {
-            if (this.getDatoRaiz().Equals(dato))
-                return true;
-            else {
-                if (this.)
-                 }
+        //public bool include (T dato)
+        //{
+        //    if (this.getDatoRaiz().Equals(dato))
+        //        return true;
+        //    else {
+        //        if (this.)
+        //         }
             
-        }
+        //}
     }
 }
 //renzo.angeloro@gmail.com
