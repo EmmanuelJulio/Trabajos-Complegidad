@@ -23,6 +23,7 @@ namespace Trabajo_de_complegidad
             Arbol.agregarHijo(raiz5);
             Arbol.agregarHijo(raiz6);
             Arbol.agregarHijo(raiz7);
+            
 
 
             Opciones(Arbol);
@@ -30,13 +31,21 @@ namespace Trabajo_de_complegidad
         }
         static void Opciones(ArbolGeneral<int> abb)
         {
+            List<int> listaA = new List<int>();
+            listaA.Add(1);
+            listaA.Add(2);
+            listaA.Add(3);
+            List<int> listab = new List<int>();
+            listab.Add(4);
+            listab.Add(5);
+            listab.Add(6);
             Console.WriteLine("1. Agregar elemento");
             Console.WriteLine("2. Recorrer todos los hijos");
             Console.WriteLine("3. Recorrido Preorden");
             Console.WriteLine("4. Recorrido Post");
             Console.WriteLine("5. Buscar en arbol");
-            Console.WriteLine("6. Contar Hojas");
-            Console.WriteLine("7. Contar entre niveles");
+            Console.WriteLine("6. Crear arbol con dos listas (ya estan creadas)");
+            Console.WriteLine("7. Preguntar nivel de dato");
 
 
 
@@ -93,11 +102,14 @@ namespace Trabajo_de_complegidad
                         
                         break;
                     case 6:
-                       
-                       
+                         ArbolGeneral<int> nuevo = CrearConDosListas(listaA,listab);
+                        Console.ReadKey();
+
                         break;
                     case 7:
-                       
+                        //Console.WriteLine("Ingrese un dato");
+                        //int dato = Convert.ToInt32(Console.ReadLine());
+                        //Console.WriteLine(abb.nivel(dato));
                         break;
                 }
             }
@@ -107,6 +119,42 @@ namespace Trabajo_de_complegidad
                 Console.WriteLine("seleccione una opcion correcta " + err.Message);
             }
             Program.Opciones(abb);
+            // ArbolGeneral<int> CrearConDosListas(List<int> a, List<int> b)
+            //{
+            //    ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
+            //    List<int> aAux = a;
+               
+            //    foreach (int dato in aAux)
+            //    {
+            //        List<int> BAux = b;
+            //        ArbolGeneral<int> nodoauxa = new ArbolGeneral<int>(dato);
+            //        arbol.agregarHijo(nodoauxa);
+            //        foreach(int dato2 in BAux)
+            //        {
+            //            CrearConDosListas(BAux, aAux);
+            //        }
+            //        aAux.Remove(dato);
+                    
+            //    }
+            //    return arbol;
+            //}
+            ArbolGeneral<int> CrearConDosListas(List<int> a, List<int> b)
+            {
+                List<int> auxA = a;
+                ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
+                    for (int i = 0; auxA.Count == i; i++)
+                    {
+                    
+                         List<int> auxb = b;
+                         ArbolGeneral<int> nodoauxa = new ArbolGeneral<int>(auxA[i]);
+                         arbol.agregarHijo(nodoauxa);
+                        foreach(ArbolGeneral<int> nodo in arbol.getHijos())
+                    {
+                        CrearConDosListas(auxb, auxA);
+                    }
+                    } 
+                return arbol;
+            }
         }
     }
     

@@ -18,6 +18,7 @@ namespace Trabajo_de_complegidad
         {
             this.raiz = nodo;
         }
+        
 
         private NodoGeneral<T> getRaiz()
         {
@@ -42,6 +43,10 @@ namespace Trabajo_de_complegidad
         public void agregarHijo(ArbolGeneral<T> hijo)
         {
             this.raiz.getHijos().Add(hijo.getRaiz());
+        }
+        public void AgregarRecursivo()
+        {
+
         }
 
         public void eliminarHijo(ArbolGeneral<T> hijo)
@@ -73,39 +78,33 @@ namespace Trabajo_de_complegidad
             return altura+1;
         }
 
-
-        public int nivel(T dato)
-        {
-
-            if (this.getDatoRaiz().Equals(dato))
-            {
-                return 0;
-            }
-            else
-            {
-                foreach (ArbolGeneral<T> h in getHijos())
-                    
-                {
-                   
-                }
-            }
-            return 0;
-        }
+         static int aux;
+        Cola<NodoGeneral<T>> cola;
+        //public int nivel(T dato)
+        //{
+            
+        //    if (this.getDatoRaiz().Equals(dato))
+        //    {
+        //        return 0;
+        //    }
+            
+        //}
 
          public int ancho()
             {
                 int ancho = 0;
                 return ancho;
             }
-          
-        //public bool include (T dato)
+
+        //public bool include(T dato)
         //{
         //    if (this.getDatoRaiz().Equals(dato))
         //        return true;
-        //    else {
+        //    else
+        //    {
         //        if (this.)
         //         }
-            
+
         //}
     }
 }
