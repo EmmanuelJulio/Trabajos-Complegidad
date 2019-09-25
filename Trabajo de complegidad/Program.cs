@@ -34,11 +34,11 @@ namespace Trabajo_de_complegidad
             List<int> listaA = new List<int>();
             listaA.Add(1);
             listaA.Add(2);
-            listaA.Add(3);
+            
             List<int> listab = new List<int>();
             listab.Add(4);
             listab.Add(5);
-            listab.Add(6);
+            
             Console.WriteLine("1. Agregar elemento");
             Console.WriteLine("2. Recorrer todos los hijos");
             Console.WriteLine("3. Recorrido Preorden");
@@ -102,7 +102,8 @@ namespace Trabajo_de_complegidad
                         
                         break;
                     case 6:
-                         ArbolGeneral<int> nuevo = CrearConDosListas(listaA,listab);
+                        ArbolGeneral<int> nuevo = new ArbolGeneral<int>(0);
+                        ArbolGeneral<int> creado = CrearConDosListas(nuevo,listaA,listab);
                         Console.ReadKey();
 
                         break;
@@ -138,23 +139,24 @@ namespace Trabajo_de_complegidad
             //    }
             //    return arbol;
             //}
-            ArbolGeneral<int> CrearConDosListas(List<int> a, List<int> b)
+            ArbolGeneral<int> CrearConDosListas(ArbolGeneral<int> nodopadre,List<int> a, List<int> b)
             {
-                List<int> auxA = a;
+                List<int> auxA = new List<int>();
+                List<int> auxB = new List<int>();
+                auxA = a;
+                auxB = b;
                 ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
-                    for (int i = 0; auxA.Count == i; i++)
-                    {
+                foreach(int nuevohijo in auxA)
+                {
+                    ArbolGeneral<int> nuevo = new ArbolGeneral<int>(nuevohijo);
+                    arbol.agregarHijo(nuevo);
+                    auxA.Remove(nuevohijo);
+
+                }
                     
-                         List<int> auxb = b;
-                         ArbolGeneral<int> nodoauxa = new ArbolGeneral<int>(auxA[i]);
-                         arbol.agregarHijo(nodoauxa);
-                        foreach(ArbolGeneral<int> nodo in arbol.getHijos())
-                    {
-                        CrearConDosListas(auxb, auxA);
-                    }
-                    } 
                 return arbol;
             }
+            
         }
     }
     
