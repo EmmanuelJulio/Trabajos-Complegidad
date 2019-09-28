@@ -5,8 +5,19 @@ namespace Trabajo_de_complegidad
 {
     class Program
     {
+
+        public static List<int> copiar(List<int> lista)
+        {
+            List<int> nueva = new List<int>();
+            foreach (int t in lista)
+            {
+                nueva.Add(t);
+            }
+            return nueva;
+        }
         static void Main(string[] args)
         {
+            
             ArbolGeneral<int> raiz = new ArbolGeneral<int>(14);
             ArbolGeneral<int> raiz2 = new ArbolGeneral<int>(15);
             ArbolGeneral<int> raiz3 = new ArbolGeneral<int>(16);
@@ -34,11 +45,11 @@ namespace Trabajo_de_complegidad
             List<int> listaA = new List<int>();
             listaA.Add(1);
             listaA.Add(2);
-            
+
             List<int> listab = new List<int>();
             listab.Add(4);
             listab.Add(5);
-            
+
             Console.WriteLine("1. Agregar elemento");
             Console.WriteLine("2. Recorrer todos los hijos");
             Console.WriteLine("3. Recorrido Preorden");
@@ -120,31 +131,12 @@ namespace Trabajo_de_complegidad
                 Console.WriteLine("seleccione una opcion correcta " + err.Message);
             }
             Program.Opciones(abb);
-            // ArbolGeneral<int> CrearConDosListas(List<int> a, List<int> b)
-            //{
-            //    ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
-            //    List<int> aAux = a;
-               
-            //    foreach (int dato in aAux)
-            //    {
-            //        List<int> BAux = b;
-            //        ArbolGeneral<int> nodoauxa = new ArbolGeneral<int>(dato);
-            //        arbol.agregarHijo(nodoauxa);
-            //        foreach(int dato2 in BAux)
-            //        {
-            //            CrearConDosListas(BAux, aAux);
-            //        }
-            //        aAux.Remove(dato);
-                    
-            //    }
-            //    return arbol;
-            //}
+            
             ArbolGeneral<int> CrearConDosListas(ArbolGeneral<int> nodopadre,List<int> a, List<int> b)
             {
-                List<int> auxA = new List<int>();
-                List<int> auxB = new List<int>();
-                auxA = a;
-                auxB = b;
+                List<int> auxA = Program.copiar(a);
+                List<int> auxB = Program.copiar(b);
+                
                 ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
                 foreach(int nuevohijo in auxA)
                 {
@@ -156,8 +148,10 @@ namespace Trabajo_de_complegidad
                     
                 return arbol;
             }
-            
+           
+
         }
+        
     }
     
 }
