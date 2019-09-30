@@ -18,22 +18,22 @@ namespace Trabajo_de_complegidad
         static void Main(string[] args)
         {
             
-            ArbolGeneral<int> raiz = new ArbolGeneral<int>(14);
-            ArbolGeneral<int> raiz2 = new ArbolGeneral<int>(15);
-            ArbolGeneral<int> raiz3 = new ArbolGeneral<int>(16);
-            ArbolGeneral<int> raiz4 = new ArbolGeneral<int>(17);
-            ArbolGeneral<int> raiz5 = new ArbolGeneral<int>(18);
-            ArbolGeneral<int> raiz6 = new ArbolGeneral<int>(19);
-            ArbolGeneral<int> raiz7 = new ArbolGeneral<int>(20);
+            //ArbolGeneral<int> raiz = new ArbolGeneral<int>(14);
+            //ArbolGeneral<int> raiz2 = new ArbolGeneral<int>(15);
+            //ArbolGeneral<int> raiz3 = new ArbolGeneral<int>(16);
+            //ArbolGeneral<int> raiz4 = new ArbolGeneral<int>(17);
+            //ArbolGeneral<int> raiz5 = new ArbolGeneral<int>(18);
+            //ArbolGeneral<int> raiz6 = new ArbolGeneral<int>(19);
+            //ArbolGeneral<int> raiz7 = new ArbolGeneral<int>(20);
 
             ArbolGeneral<int> Arbol = new ArbolGeneral<int>(0);
-            Arbol.agregarHijo(raiz);
-            Arbol.agregarHijo(raiz2);
-            Arbol.agregarHijo(raiz3);
-            Arbol.agregarHijo(raiz4);
-            Arbol.agregarHijo(raiz5);
-            Arbol.agregarHijo(raiz6);
-            Arbol.agregarHijo(raiz7);
+            //Arbol.agregarHijo(raiz);
+            //Arbol.agregarHijo(raiz2);
+            //Arbol.agregarHijo(raiz3);
+            //Arbol.agregarHijo(raiz4);
+            //Arbol.agregarHijo(raiz5);
+            //Arbol.agregarHijo(raiz6);
+            //Arbol.agregarHijo(raiz7);
             
 
 
@@ -113,8 +113,8 @@ namespace Trabajo_de_complegidad
                         
                         break;
                     case 6:
-                        ArbolGeneral<int> nuevo = new ArbolGeneral<int>(0);
-                        ArbolGeneral<int> creado = CrearConDosListas(nuevo,listaA,listab);
+                        
+                        abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab);
                         Console.ReadKey();
 
                         break;
@@ -132,22 +132,7 @@ namespace Trabajo_de_complegidad
             }
             Program.Opciones(abb);
             
-            ArbolGeneral<int> CrearConDosListas(ArbolGeneral<int> nodopadre,List<int> a, List<int> b)
-            {
-                List<int> auxA = Program.copiar(a);
-                List<int> auxB = Program.copiar(b);
-                
-                ArbolGeneral<int> arbol = new ArbolGeneral<int>(0);
-                foreach(int nuevohijo in auxA)
-                {
-                    ArbolGeneral<int> nuevo = new ArbolGeneral<int>(nuevohijo);
-                    arbol.agregarHijo(nuevo);
-                    auxA.Remove(nuevohijo);
-
-                }
-                    
-                return arbol;
-            }
+           
            
 
         }
