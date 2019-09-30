@@ -97,7 +97,22 @@ namespace Trabajo_final_Comp
                 int ancho = 0;
                 return ancho;
             }
-          
+        public NodoGeneral<int> CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b)
+        {
+
+            NodoGeneral<int> Nuevo = nodopadre;
+            List<int> AuxA = Program.copiar(a);
+            List<int> AuxB = Program.copiar(b);
+
+            for (int i = 0; AuxA.Count != 0; i++)
+            {
+                NodoGeneral<int> NuevoHijo = new NodoGeneral<int>(AuxA[0]);
+                Nuevo.setHijos(NuevoHijo);
+                AuxA.Remove(AuxA[0]);
+                CrearConDosListas(NuevoHijo, AuxB, AuxA);
+            }
+            return Nuevo;
+        }
         //public bool include (T dato)
         //{
         //    if (this.getDatoRaiz().Equals(dato))
@@ -105,7 +120,7 @@ namespace Trabajo_final_Comp
         //    else {
         //        if (this.)
         //         }
-            
+
         //}
     }
 }

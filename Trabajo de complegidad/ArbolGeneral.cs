@@ -100,26 +100,21 @@ namespace Trabajo_de_complegidad
             }
         public NodoGeneral<int> CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b)
         {
-          
+
             NodoGeneral<int> Nuevo = nodopadre;
             List<int> AuxA = Program.copiar(a);
             List<int> AuxB = Program.copiar(b);
 
-            for (int i=0;i<=AuxA.Count;i++)
+            for (int i = 0; AuxA.Count!=0; i++)
             {
-                if (AuxA.Count != 0)
-                {
                     NodoGeneral<int> NuevoHijo = new NodoGeneral<int>(AuxA[0]);
                     Nuevo.setHijos(NuevoHijo);
                     AuxA.Remove(AuxA[0]);
                     CrearConDosListas(NuevoHijo, AuxB, AuxA);
-                }  
-            //    CrearConDosListas(Nuevo, AuxB, AuxA);
             }
             return Nuevo;
         }
 
-       
     }
 }
 //renzo.angeloro@gmail.com

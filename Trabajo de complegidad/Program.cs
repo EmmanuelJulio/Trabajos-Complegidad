@@ -45,10 +45,17 @@ namespace Trabajo_de_complegidad
             List<int> listaA = new List<int>();
             listaA.Add(1);
             listaA.Add(2);
+            listaA.Add(3);
+            listaA.Add(4);
+            //listaA.Add(3);
 
             List<int> listab = new List<int>();
-            listab.Add(4);
+           
             listab.Add(5);
+            listab.Add(6);
+            listab.Add(7);
+            listab.Add(8);
+
 
             Console.WriteLine("1. Agregar elemento");
             Console.WriteLine("2. Recorrer todos los hijos");
