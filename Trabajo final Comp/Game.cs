@@ -45,15 +45,24 @@ namespace Trabajo_final_Comp
 			Console.WriteLine("Limite:" + limite.ToString());
 		}
 		
+        /// <summary>
+        /// /////////////////////////////////////////////////////////
+        /// </summary>
+        /// <param name="jugador"></param>
+        /// <param name="oponente"></param>
+        /// <param name="naipes"></param>
 		private void turn(Jugador jugador, Jugador oponente, List<int> naipes)
 		{
 			int carta = jugador.descartarUnaCarta();
 			naipes.Remove(carta);
 			limite -= carta;
+            
 			oponente.cartaDelOponente(carta);
 			juegaHumano = !juegaHumano;
 		}
-		
+		/// <summary>
+        /// ///////////////////////////////////////////////////////////
+        /// </summary>
 		
 		
 		private void printWinner()

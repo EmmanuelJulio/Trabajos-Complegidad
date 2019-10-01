@@ -9,19 +9,25 @@ namespace Trabajo_final_Comp
 
         private NodoGeneral<T> raiz;
 
+        public NodoGeneral<T> Raiz { get => raiz; set => raiz = value; }
+        public void setRaiz(NodoGeneral<T> NuevaRaiz)
+        {
+            this.raiz = NuevaRaiz;
+        }
+
         public ArbolGeneral(T dato)
         {
-            this.raiz = new NodoGeneral<T>(dato);
+            this.Raiz = new NodoGeneral<T>(dato);
         }
 
         public ArbolGeneral(NodoGeneral<T> nodo)
         {
-            this.raiz = nodo;
+            this.Raiz = nodo;
         }
 
         private NodoGeneral<T> getRaiz()
         {
-            return raiz;
+            return Raiz;
         }
 
         public T getDatoRaiz()
@@ -32,7 +38,7 @@ namespace Trabajo_final_Comp
         public List<ArbolGeneral<T>> getHijos()
         {
             List<ArbolGeneral<T>> temp = new List<ArbolGeneral<T>>();
-            foreach (var element in this.raiz.getHijos())
+            foreach (var element in this.Raiz.getHijos())
             {
                 temp.Add(new ArbolGeneral<T>(element));
             }
@@ -41,22 +47,22 @@ namespace Trabajo_final_Comp
 
         public void agregarHijo(ArbolGeneral<T> hijo)
         {
-            this.raiz.getHijos().Add(hijo.getRaiz());
+            this.Raiz.getHijos().Add(hijo.getRaiz());
         }
 
         public void eliminarHijo(ArbolGeneral<T> hijo)
         {
-            this.raiz.getHijos().Remove(hijo.getRaiz());
+            this.Raiz.getHijos().Remove(hijo.getRaiz());
         }
 
         public bool esVacio()
         {
-            return this.raiz == null;
+            return this.Raiz == null;
         }
 
         public bool esHoja()
         {
-            return this.raiz != null && this.getHijos().Count == 0;
+            return this.Raiz != null && this.getHijos().Count == 0;
         }
 
         public int altura()
@@ -101,8 +107,8 @@ namespace Trabajo_final_Comp
         {
 
             NodoGeneral<int> Nuevo = nodopadre;
-            List<int> AuxA = Program.copiar(a);
-            List<int> AuxB = Program.copiar(b);
+            List<int> AuxA = Juego.copiar(a);
+            List<int> AuxB = Juego.copiar(b);
 
             for (int i = 0; AuxA.Count != 0; i++)
             {

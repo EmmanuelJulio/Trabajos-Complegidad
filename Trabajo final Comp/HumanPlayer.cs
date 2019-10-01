@@ -27,6 +27,7 @@ namespace Trabajo_final_Comp
 			this.naipes = cartasPropias;
 			this.naipesComputer = cartasOponente;
 			this.limite = limite;
+            
 		}
 		
 		public override int descartarUnaCarta()
