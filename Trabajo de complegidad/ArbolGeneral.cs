@@ -110,6 +110,7 @@ namespace Trabajo_de_complegidad
             {
                     NodoGeneral<int> NuevoHijo = new NodoGeneral<int>(AuxA[0]);
                     Nuevo.setHijos(NuevoHijo);
+                    
                     AuxA.Remove(AuxA[0]);
                     CrearConDosListas(NuevoHijo, AuxB, AuxA);
             }

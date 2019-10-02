@@ -24,7 +24,7 @@ namespace Trabajo_final_Comp
             this.naipes = cartasPropias;
             this.naipesHumano = cartasOponente;
             this.limite = limite;
-            ArbolMinMax.CrearConDosListas(ArbolMinMax.Raiz, cartasOponente, cartasPropias);
+            ArbolMinMax.CrearConDosListas(ArbolMinMax.Raiz, cartasOponente, cartasPropias,limite);
             //Implementar
         }
 		
@@ -51,18 +51,18 @@ namespace Trabajo_final_Comp
 
 
         }
-        public int SeleccionarMejorValor()
-        {
-            int BestValue;
+        //public int SeleccionarMejorValor()
+        //{
+        //    int BestValue;
             
-            foreach(ArbolGeneral<int> opciones in arbolMinMax.getHijos())
-            {
-                if (opciones.getDatoRaiz() + limite > limite)
-                {
+        //    foreach(ArbolGeneral<int> opciones in arbolMinMax.getHijos())
+        //    {
+        //        if (opciones.getDatoRaiz() + limite > limite)
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 		
 	}
 }
