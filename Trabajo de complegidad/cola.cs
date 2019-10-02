@@ -10,26 +10,28 @@ namespace Trabajo_de_complegidad
 
         private List<T> datos = new List<T>();
 
+        public List<T> Datos { get => datos; set => datos = value; }
+
         public void encolar(T elem)
         {
-            this.datos.Add(elem);
+            this.Datos.Add(elem);
         }
 
         public T desencolar()
         {
-            T temp = this.datos[0];
-            this.datos.RemoveAt(0);
+            T temp = this.Datos[0];
+            this.Datos.RemoveAt(0);
             return temp;
         }
 
         public T tope()
         {
-            return this.datos[0];
+            return this.Datos[0];
         }
 
         public bool esVacia()
         {
-            return this.datos.Count == 0;
+            return this.Datos.Count == 0;
         }
     }
 }

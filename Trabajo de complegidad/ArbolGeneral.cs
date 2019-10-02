@@ -9,6 +9,7 @@ namespace Trabajo_de_complegidad
 
         private NodoGeneral<T> raiz;
 
+
         public ArbolGeneral(T dato)
         {
             this.Raiz = new NodoGeneral<T>(dato);
@@ -79,7 +80,7 @@ namespace Trabajo_de_complegidad
         }
 
          static int aux;
-        Cola<NodoGeneral<T>> cola;
+        Cola<NodoGeneral<T>> cola = new Cola<NodoGeneral<T>>();
 
         public NodoGeneral<T> Raiz { get => raiz; set => raiz = value; }
 
@@ -114,7 +115,40 @@ namespace Trabajo_de_complegidad
             }
             return Nuevo;
         }
+        public void RecorrerEnProfundidad(NodoGeneral<T> Raiz)
+        {
+            NodoGeneral<T> Aux = Raiz;
+            NodoGeneral<T> Anterior = Raiz;
+            if (Raiz.getHijos().Count == 0)
+                Console.Write(Raiz.getDato());
+            while (Aux.getHijos().Count != 0)
+            {
+                foreach(NodoGeneral<T> NodoRecorrido in Aux.getHijos())
+                {
+                    Aux = NodoRecorrido;
+                }
+            }
+            foreach (NodoGeneral<T> Ante in Anterior.getHijos())
+            {
+                Console.Write(Ante.getDato());
+                RecorrerEnProfundidad(Aux);
+            }
+        }
+        public void RecorrerEnProfundidad2(NodoGeneral<T> Raiz)
+        {
+            NodoGeneral<T> anterior = Raiz;
+            NodoGeneral<T> Aux = Raiz;
+            if (Raiz.getHijos() != null)
+            {
+                foreach(NodoGeneral<T> nodo in anterior.getHijos())
+                {
+                    cola.encolar(nodo);
+                    Aux = nodo;
+                    RecorrerEnProfundidad2(Aux);
+                }
+            }
 
+        }
     }
 }
 //renzo.angeloro@gmail.com

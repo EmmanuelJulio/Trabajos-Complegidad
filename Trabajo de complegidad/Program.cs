@@ -45,16 +45,17 @@ namespace Trabajo_de_complegidad
             List<int> listaA = new List<int>();
             listaA.Add(1);
             listaA.Add(2);
-            listaA.Add(3);
-            listaA.Add(4);
+  //          listaA.Add(3);
+   //         listaA.Add(4);
             //listaA.Add(3);
 
             List<int> listab = new List<int>();
            
-            listab.Add(5);
-            listab.Add(6);
+     //       listab.Add(5);
+     //       listab.Add(6);
             listab.Add(7);
             listab.Add(8);
+            abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab);
 
 
             Console.WriteLine("1. Agregar elemento");
@@ -63,7 +64,7 @@ namespace Trabajo_de_complegidad
             Console.WriteLine("4. Recorrido Post");
             Console.WriteLine("5. Buscar en arbol");
             Console.WriteLine("6. Crear arbol con dos listas (ya estan creadas)");
-            Console.WriteLine("7. Preguntar nivel de dato");
+            Console.WriteLine("7. Recorrer en profundidad");
 
 
 
@@ -126,9 +127,8 @@ namespace Trabajo_de_complegidad
 
                         break;
                     case 7:
-                        //Console.WriteLine("Ingrese un dato");
-                        //int dato = Convert.ToInt32(Console.ReadLine());
-                        //Console.WriteLine(abb.nivel(dato));
+                        abb.RecorrerEnProfundidad2(abb.Raiz);
+                        Console.WriteLine(" ");
                         break;
                 }
             }

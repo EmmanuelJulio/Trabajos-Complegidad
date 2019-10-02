@@ -7,6 +7,8 @@ namespace Trabajo_de_complegidad
     public class NodoGeneral<T>
     {
         private T dato;
+        private T Apha;
+        private T Beta;
         private List<NodoGeneral<T>> hijos;
 
         public NodoGeneral(T dato)
@@ -14,6 +16,9 @@ namespace Trabajo_de_complegidad
             this.dato = dato;
             this.hijos = new List<NodoGeneral<T>>();
         }
+
+        public T Apha1 { get => Apha; set => Apha = value; }
+        public T Beta1 { get => Beta; set => Beta = value; }
 
         public T getDato()
         {
