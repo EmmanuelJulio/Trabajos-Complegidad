@@ -53,7 +53,7 @@ namespace Trabajo_Aparte
             nodo nuevo = new nodo(dato);
             nodo anterior = primero;
             nodo actual = primero;
-            if
+           
             while (actual.siguiente != null)
             {
                 anterior = actual;

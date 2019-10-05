@@ -21,15 +21,47 @@ namespace Trabajo_final_Comp
 		
 		public override void  incializar(List<int> cartasPropias, List<int> cartasOponente, int limite)
 		{
+            NodoGeneral<int> root = new NodoGeneral<int>(-1);
             this.naipes = cartasPropias;
             this.naipesHumano = cartasOponente;
+
             this.limite = limite;
-            ArbolMinMax.CrearConDosListas(ArbolMinMax.Raiz, cartasOponente, cartasPropias,limite);
-            //Implementar
+            CrearConDosListas(root, cartasOponente, cartasPropias, false, limite);
+            //root.print();
+            Console.WriteLine();
         }
-		
-		
-		public override int descartarUnaCarta()
+        public void CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b, bool miTurno, int tope)
+        {
+            for (int i = 0; a.Count != 0; i++)
+            {
+
+                List<int> AuxA = Juego.copiar(a);
+                int cartaAJugar = a[i];
+                AuxA.Remove(cartaAJugar);
+                NodoGeneral<int> Nuevohijo = new NodoGeneral<int>(cartaAJugar);
+                nodopadre.setHijos(Nuevohijo);
+
+                if (!miTurno && ((tope - cartaAJugar) < 0))
+                {
+                    Nuevohijo.Beta = 1;
+                }
+                else
+                {
+                    if ((tope - cartaAJugar) == 0)
+                    {
+                        Nuevohijo.Beta = 1;
+                    }
+                    else if ((tope - cartaAJugar) > 0)
+                    {
+                        CrearConDosListas(Nuevohijo, b, AuxA, !miTurno, (tope - cartaAJugar));
+                    }
+                }
+            }
+
+        }
+
+
+        public override int descartarUnaCarta()
 		{
 			//Implementar
 			return 0;
@@ -37,7 +69,9 @@ namespace Trabajo_final_Comp
 		
 		public override void cartaDelOponente(int carta)
 		{
-            int mejoropcion;
+            int mejoropcion=0;
+            ArbolGeneral<int> mejor = new ArbolGeneral<int>(0);
+            
 			//implementar esto es lo que se va a correr cuando juegue la maquina
             foreach(ArbolGeneral<int> NuevaRaiz in arbolMinMax.getHijos())
             {
@@ -46,10 +80,16 @@ namespace Trabajo_final_Comp
             }
             foreach (ArbolGeneral<int> opciones in arbolMinMax.getHijos())
             {
+                if (opciones.Raiz.Alpha > mejoropcion)
+                {
+                    mejor = opciones;
+                    mejoropcion = opciones.Raiz.Alpha;
 
+                }
             }
-
-
+            ArbolMinMax.Raiz = mejor.Raiz;
+            Console.WriteLine("La maquina escogio la carta " + mejor.getDatoRaiz());
+            limite = limite + mejor.getDatoRaiz();
         }
         //public int SeleccionarMejorValor()
         //{

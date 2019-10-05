@@ -8,7 +8,7 @@ namespace Trabajo_final_Comp
     {
 
         private NodoGeneral<T> raiz;
-
+       
         public NodoGeneral<T> Raiz { get => raiz; set => raiz = value; }
         public void setRaiz(NodoGeneral<T> NuevaRaiz)
         {
@@ -103,23 +103,7 @@ namespace Trabajo_final_Comp
                 int ancho = 0;
                 return ancho;
             }
-        public NodoGeneral<int> CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b,int limite)
-        {
-
-            NodoGeneral<int> Nuevo = nodopadre;
-            List<int> AuxA = Juego.copiar(a);
-            List<int> AuxB = Juego.copiar(b);
-
-            for (int i = 0; AuxA.Count != 0; i++)
-            {
-                NodoGeneral<int> NuevoHijo = new NodoGeneral<int>(AuxA[0]);
-                Nuevo.setHijos(NuevoHijo);
- //               if(Nuevo.Alpha+ NuevoHijo)
-                AuxA.Remove(AuxA[0]);
-                CrearConDosListas(NuevoHijo, AuxB, AuxA,limite);
-            }
-            return Nuevo;
-        }
+        
         //public bool include (T dato)
         //{
         //    if (this.getDatoRaiz().Equals(dato))

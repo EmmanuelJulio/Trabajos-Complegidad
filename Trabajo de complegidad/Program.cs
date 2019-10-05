@@ -43,19 +43,19 @@ namespace Trabajo_de_complegidad
         static void Opciones(ArbolGeneral<int> abb)
         {
             List<int> listaA = new List<int>();
-            listaA.Add(1);
+            listaA.Add(4);
+    //        listaA.Add(2);
             listaA.Add(2);
-  //          listaA.Add(3);
    //         listaA.Add(4);
             //listaA.Add(3);
 
             List<int> listab = new List<int>();
            
      //       listab.Add(5);
-     //       listab.Add(6);
-            listab.Add(7);
-            listab.Add(8);
-            abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab);
+       //     listab.Add(6);
+            listab.Add(3);
+            listab.Add(1);
+            abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab,abb.getDatoRaiz());
 
 
             Console.WriteLine("1. Agregar elemento");
@@ -122,7 +122,7 @@ namespace Trabajo_de_complegidad
                         break;
                     case 6:
                         
-                        abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab);
+                        abb.Raiz = abb.CrearConDosListas(abb.Raiz, listaA, listab ,abb.getDatoRaiz());
                         Console.ReadKey();
 
                         break;

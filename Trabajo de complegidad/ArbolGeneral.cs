@@ -99,20 +99,29 @@ namespace Trabajo_de_complegidad
                 int ancho = 0;
                 return ancho;
             }
-        public NodoGeneral<int> CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b)
+        public NodoGeneral<int> CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b,int DatoPadre,int Aacomulado=0)
         {
-
+            int Acomulado = Aacomulado;
             NodoGeneral<int> Nuevo = nodopadre;
             List<int> AuxA = Program.copiar(a);
             List<int> AuxB = Program.copiar(b);
 
             for (int i = 0; AuxA.Count!=0; i++)
             {
+                   
+                    int Gane=0;
                     NodoGeneral<int> NuevoHijo = new NodoGeneral<int>(AuxA[0]);
                     Nuevo.setHijos(NuevoHijo);
                     
                     AuxA.Remove(AuxA[0]);
-                    CrearConDosListas(NuevoHijo, AuxB, AuxA);
+                if (Acomulado + NuevoHijo.getDato() >= 5)
+                    Gane++;
+
+                Acomulado = DatoPadre + NuevoHijo.getDato();
+
+                NuevoHijo.Beta1 =  Gane;
+                nodopadre.Beta1= nodopadre.Beta1 + NuevoHijo.Beta1;
+                    CrearConDosListas(NuevoHijo, AuxB, AuxA,NuevoHijo.getDato(),Acomulado);
             }
             return Nuevo;
         }
@@ -148,7 +157,10 @@ namespace Trabajo_de_complegidad
                     RecorrerEnProfundidad2(Aux);
                 }
             }
-
+            for (int i = 0; cola.esVacia() != true; i++)
+            {
+                Console.Write(cola.desencolar().getDato());
+            }
         }
     }
 }
