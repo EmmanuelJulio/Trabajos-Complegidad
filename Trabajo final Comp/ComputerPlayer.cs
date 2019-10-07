@@ -28,11 +28,13 @@ namespace Trabajo_final_Comp
             this.limite = limite;
             CrearConDosListas(root, cartasOponente, cartasPropias, false, limite);
             //root.print();
+            this.ArbolMinMax.setRaiz(root);
+
             Console.WriteLine();
         }
         public void CrearConDosListas(NodoGeneral<int> nodopadre, List<int> a, List<int> b, bool miTurno, int tope)
         {
-            for (int i = 0; a.Count != 0; i++)
+            for (int i = 0; i < a.Count; i++)
             {
 
                 List<int> AuxA = Juego.copiar(a);
@@ -63,13 +65,25 @@ namespace Trabajo_final_Comp
 
         public override int descartarUnaCarta()
 		{
-			//Implementar
-			return 0;
+             int mejoropcion = -1;
+            ArbolGeneral<int> nueopcion=null;
+            foreach (ArbolGeneral<int> opciones in arbolMinMax.getHijos())
+            {
+                if (opciones.Raiz.Beta > mejoropcion)
+                {
+                    nueopcion = opciones;
+                    mejoropcion = opciones.Raiz.Beta;
+
+                }
+            }
+            arbolMinMax.setRaiz(nueopcion.Raiz);
+            Console.WriteLine("La maquina escogio la carta " + nueopcion.getDatoRaiz());
+            return nueopcion.getDatoRaiz();
 		}
 		
 		public override void cartaDelOponente(int carta)
 		{
-            int mejoropcion=0;
+            //int mejoropcion=0;
             ArbolGeneral<int> mejor = new ArbolGeneral<int>(0);
             
 			//implementar esto es lo que se va a correr cuando juegue la maquina
@@ -77,7 +91,7 @@ namespace Trabajo_final_Comp
             {
                 if (NuevaRaiz.getDatoRaiz() == carta)
                     arbolMinMax.setRaiz(NuevaRaiz.Raiz);
-            }
+            }/*
             foreach (ArbolGeneral<int> opciones in arbolMinMax.getHijos())
             {
                 if (opciones.Raiz.Alpha > mejoropcion)
@@ -87,9 +101,9 @@ namespace Trabajo_final_Comp
 
                 }
             }
-            ArbolMinMax.Raiz = mejor.Raiz;
-            Console.WriteLine("La maquina escogio la carta " + mejor.getDatoRaiz());
-            limite = limite + mejor.getDatoRaiz();
+            ArbolMinMax.Raiz = mejor.Raiz;*/
+            
+            limite = limite -carta;
         }
         //public int SeleccionarMejorValor()
         //{

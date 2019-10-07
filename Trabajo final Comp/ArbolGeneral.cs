@@ -43,7 +43,9 @@ namespace Trabajo_final_Comp
                 temp.Add(new ArbolGeneral<T>(element));
             }
             return temp;
+
         }
+        
 
         public void agregarHijo(ArbolGeneral<T> hijo)
         {

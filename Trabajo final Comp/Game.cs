@@ -82,14 +82,18 @@ namespace Trabajo_final_Comp
 		
 		public void play()
 		{
-			while (!this.fin()) {
+            Console.WriteLine("Se ha comenzado un nuevo juego en cualquier mom+ento puede disponer de uno nuevo asi mismo ,podra ejecutar las siguientes acciones");
+            
+                
+                while (!this.fin()) {
 				this.printScreen();
 				this.turn(player2, player1, naipesHuman); // Juega el usuario
 				if (!this.fin()) {
 					this.printScreen();
 					this.turn(player1, player2, naipesComputer); // Juega la IA
 				}
-			}
+              //  Juego.Opciones(carta,);
+            }
 			this.printWinner();
 		}
 		
