@@ -92,7 +92,7 @@ namespace Trabajo_final_Comp
 					this.printScreen();
 					this.turn(player1, player2, naipesComputer); // Juega la IA
 				}
-              //  Juego.Opciones(carta,);
+              //      Juego.Opciones(carta,);
             }
 			this.printWinner();
 		}
