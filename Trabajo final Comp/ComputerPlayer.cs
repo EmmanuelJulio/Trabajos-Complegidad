@@ -11,7 +11,7 @@ namespace Trabajo_final_Comp
         private List<int> naipesHumano = new List<int>();
         private int limite;
         private bool random_card = false;
-       public static ArbolGeneral<int> arbolMinMax = new ArbolGeneral<int>(0);
+        public static ArbolGeneral<int> arbolMinMax = new ArbolGeneral<int>(0);
 
         public ArbolGeneral<int> ArbolMinMax { get => arbolMinMax; set => arbolMinMax = value; }
 
@@ -27,7 +27,6 @@ namespace Trabajo_final_Comp
 
             this.limite = limite;
             CrearConDosListas(root, cartasOponente, cartasPropias, false, limite);
-            //root.print();
             this.ArbolMinMax.setRaiz(root);
 
             Console.WriteLine();
@@ -83,7 +82,7 @@ namespace Trabajo_final_Comp
 		
 		public override void cartaDelOponente(int carta)
 		{
-            //int mejoropcion=0;
+ //           Juego.Opciones(carta, ComputerPlayer.arbolMinMax);
             ArbolGeneral<int> mejor = new ArbolGeneral<int>(0);
             
 			//implementar esto es lo que se va a correr cuando juegue la maquina
@@ -91,32 +90,11 @@ namespace Trabajo_final_Comp
             {
                 if (NuevaRaiz.getDatoRaiz() == carta)
                     arbolMinMax.setRaiz(NuevaRaiz.Raiz);
-            }/*
-            foreach (ArbolGeneral<int> opciones in arbolMinMax.getHijos())
-            {
-                if (opciones.Raiz.Alpha > mejoropcion)
-                {
-                    mejor = opciones;
-                    mejoropcion = opciones.Raiz.Alpha;
-
-                }
             }
-            ArbolMinMax.Raiz = mejor.Raiz;*/
-            
+
             limite = limite -carta;
         }
-        //public int SeleccionarMejorValor()
-        //{
-        //    int BestValue;
-            
-        //    foreach(ArbolGeneral<int> opciones in arbolMinMax.getHijos())
-        //    {
-        //        if (opciones.getDatoRaiz() + limite > limite)
-        //        {
-
-        //        }
-        //    }
-        //}
+      
 		
 	}
 }

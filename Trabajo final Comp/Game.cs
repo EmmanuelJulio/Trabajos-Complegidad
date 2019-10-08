@@ -45,12 +45,6 @@ namespace Trabajo_final_Comp
 			Console.WriteLine("Limite:" + limite.ToString());
 		}
 		
-        /// <summary>
-        /// /////////////////////////////////////////////////////////
-        /// </summary>
-        /// <param name="jugador"></param>
-        /// <param name="oponente"></param>
-        /// <param name="naipes"></param>
 		private void turn(Jugador jugador, Jugador oponente, List<int> naipes)
 		{
 			int carta = jugador.descartarUnaCarta();
@@ -59,11 +53,9 @@ namespace Trabajo_final_Comp
             
 			oponente.cartaDelOponente(carta);
 			juegaHumano = !juegaHumano;
+           
 		}
-		/// <summary>
-        /// ///////////////////////////////////////////////////////////
-        /// </summary>
-		
+
 		
 		private void printWinner()
 		{
@@ -95,7 +87,8 @@ namespace Trabajo_final_Comp
               //      Juego.Opciones(carta,);
             }
 			this.printWinner();
-		}
+            Juego.Opciones();
+        }
 		
 		
 	}

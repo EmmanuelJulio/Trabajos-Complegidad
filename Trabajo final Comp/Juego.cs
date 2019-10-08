@@ -55,9 +55,9 @@ namespace Trabajo_final_Comp
                     }
 
                     break;
-
+                    
                 case 3:
-
+                    Arbol.VerBeta(Arbol);
                     break;
                 case 4:
 

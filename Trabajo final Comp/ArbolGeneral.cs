@@ -105,16 +105,27 @@ namespace Trabajo_final_Comp
                 int ancho = 0;
                 return ancho;
             }
-        
-        //public bool include (T dato)
-        //{
-        //    if (this.getDatoRaiz().Equals(dato))
-        //        return true;
-        //    else {
-        //        if (this.)
-        //         }
+        Cola<ArbolGeneral<int>> ColaAux = new Cola<ArbolGeneral<int>>();
+        public void VerBeta(ArbolGeneral<int> Arbol)
+        {
+            ColaAux.encolar(Arbol);
+            while (!ColaAux.esVacia())
+            {
+                ArbolGeneral<int> aux = ColaAux.desencolar();
+                foreach (ArbolGeneral<int> nodo in aux.getHijos())
+                {
+                    VerBeta(nodo);
+                    ColaAux.encolar(nodo);
+                    Console.WriteLine(nodo.getDatoRaiz() + " " + nodo.raiz.Beta);
+                }
+            }
 
-        //}
+            
+            
+        }
+
+        
     }
+ 
 }
 //renzo.angeloro@gmail.com
