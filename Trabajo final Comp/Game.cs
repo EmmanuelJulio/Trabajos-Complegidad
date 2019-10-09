@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace Trabajo_final_Comp
 {
@@ -19,22 +20,25 @@ namespace Trabajo_final_Comp
         private List<int> naipesComputer = new List<int>();
 		private int limite;
 		private bool juegaHumano = false;
-		
-		
-		public Game()
+
+        public int Limite { get => limite; set => limite = value; }
+
+        public Game()
 		{
 			var rnd = new Random();
-			limite = rnd.Next(LOWER, UPPER);
+			Limite = rnd.Next(LOWER, UPPER);
 			
 			naipesHuman = Enumerable.Range(1, WIDTH).OrderBy(x => rnd.Next()).Take(WIDTH / 2).ToList();
 			
 			for (int i = 1; i <= WIDTH; i++) {
 				if (!naipesHuman.Contains(i)) {
 					naipesComputer.Add(i);
-				}
+                    
+
+                }
 			}
-			player1.incializar(naipesComputer, naipesHuman, limite);
-			player2.incializar(naipesHuman, naipesComputer, limite);
+			player1.incializar(naipesComputer, naipesHuman, Limite);
+			player2.incializar(naipesHuman, naipesComputer, Limite);
 			
 		}
 		
@@ -42,22 +46,74 @@ namespace Trabajo_final_Comp
 		private void printScreen()
 		{
 			Console.WriteLine();
-			Console.WriteLine("Limite:" + limite.ToString());
+			Console.WriteLine("Limite:" + Limite.ToString());
 		}
+        private void IngresarAopciones(int carta,ArbolGeneral<int> arbolGeneral)
+        {
+            if (juegaHumano)
+            {
+                Opciones(carta,arbolGeneral);
+            }
+        }
 		
 		private void turn(Jugador jugador, Jugador oponente, List<int> naipes)
 		{
+            
 			int carta = jugador.descartarUnaCarta();
-			naipes.Remove(carta);
-			limite -= carta;
+            IngresarAopciones(carta,ComputerPlayer.arbolMinMax);
+            naipes.Remove(carta);
+			Limite -= carta;
             
 			oponente.cartaDelOponente(carta);
 			juegaHumano = !juegaHumano;
            
 		}
+        public static void Opciones(int carta = 0, ArbolGeneral<int> Arbol = null,int limite=1)
+        {
+            Console.WriteLine();
+            Console.WriteLine("******************************Elija una opcion********************************");
+            Console.WriteLine("1)----------------------------Comenzar un juego nuevo-------------------------------"); 
+            Console.WriteLine("2)----------------------------Imprimir posibles resultados--------------------");
+            Console.WriteLine("3)----------------------------Imprimir resultados a una profundidad-----------");
+            Console.WriteLine("4)----------------------------Continuar juego anterior------------------------");
+            Console.WriteLine("*******************************************************************************");
+            Console.WriteLine();
+            int eleccion = Convert.ToInt32(Console.ReadLine());
+            switch (eleccion)
+            {
+                case 1:
+                    Game game = new Game();
+                    game.play();
+                    break;
 
-		
-		private void printWinner()
+                case 2:
+                    if (Arbol != null)
+                    {
+                        Console.WriteLine("La maquina podria juegar ");
+                        foreach (ArbolGeneral<int> posible in Arbol.getHijos())
+                        {
+                            Console.Write(posible.getDatoRaiz() + " ");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Debe existir un juego en progreso");
+                        Opciones(carta, Arbol);
+                    }
+
+                    break;
+
+                case 3:
+                    Arbol.VerBeta(Arbol);
+                    break;
+                case 4:
+
+                    break;
+            }
+        }
+
+
+        private void printWinner()
 		{
 			if (!juegaHumano) {
 				Console.WriteLine("Gano el Ud");
@@ -69,13 +125,13 @@ namespace Trabajo_final_Comp
 		
 		private bool fin()
 		{
-			return limite < 0;
+			return Limite < 0;
 		}
 		
 		public void play()
 		{
-            Console.WriteLine("Se ha comenzado un nuevo juego en cualquier mom+ento puede disponer de uno nuevo asi mismo ,podra ejecutar las siguientes acciones");
-            
+            Console.WriteLine("Se ha comenzado un nuevo juego en cualquier momento puede disponer de uno nuevo asi mismo ,podra ejecutar algunas acciones ");
+            Console.WriteLine("oprimiendo una tecla durante la cuenta regresiva");
                 
                 while (!this.fin()) {
 				this.printScreen();
@@ -87,7 +143,7 @@ namespace Trabajo_final_Comp
               //      Juego.Opciones(carta,);
             }
 			this.printWinner();
-            Juego.Opciones();
+            Opciones();
         }
 		
 		
