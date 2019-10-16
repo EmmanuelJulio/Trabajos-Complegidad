@@ -18,7 +18,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Trabajo Aparte", "Trabajo A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practica 4", "Practica 4\Practica 4.csproj", "{A5D42E82-BEAC-42D9-BEB8-3535C0211EE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hdleon", "Hdleon\Hdleon.csproj", "{D7A91EB0-4BCE-4915-BE03-82FE1EB8E2F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hdleon", "Hdleon\Hdleon.csproj", "{D7A91EB0-4BCE-4915-BE03-82FE1EB8E2F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArbolGeneral", "ArbolGeneral\ArbolGeneral.csproj", "{B6DFCCFA-322D-488A-8E8D-C90532284F94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,10 @@ Global
 		{D7A91EB0-4BCE-4915-BE03-82FE1EB8E2F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7A91EB0-4BCE-4915-BE03-82FE1EB8E2F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7A91EB0-4BCE-4915-BE03-82FE1EB8E2F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6DFCCFA-322D-488A-8E8D-C90532284F94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6DFCCFA-322D-488A-8E8D-C90532284F94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6DFCCFA-322D-488A-8E8D-C90532284F94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6DFCCFA-322D-488A-8E8D-C90532284F94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
