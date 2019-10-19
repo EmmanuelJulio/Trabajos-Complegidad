@@ -89,11 +89,8 @@ namespace Trabajo_final_Comp
                 case 2:
                     if (Arbol != null)
                     {
-                        Console.WriteLine("La maquina podria juegar ");
-                        foreach (ArbolGeneral<int> posible in Arbol.getHijos())
-                        {
-                            Console.Write(posible.getDatoRaiz() + " ");
-                        }
+                        Console.WriteLine("Posibles resultados: ");
+                        VerHojas(Arbol);
                     }
                     else
                     {
@@ -144,6 +141,21 @@ namespace Trabajo_final_Comp
             }
 			this.printWinner();
             Opciones();
+        }
+        public static void VerHojas(ArbolGeneral<int> a)
+        {
+            if(a.getHijos().Count == 0)
+            {
+                Console.Write(a.getDatoRaiz() + " ");
+            }
+            else
+            {
+                foreach(ArbolGeneral<int> a2 in a.getHijos())
+                {
+                    VerHojas(a2);
+                }
+            }
+
         }
 		
 		
