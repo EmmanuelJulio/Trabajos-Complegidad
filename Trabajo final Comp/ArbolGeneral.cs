@@ -8,7 +8,7 @@ namespace Trabajo_final_Comp
     {
 
         private NodoGeneral<T> raiz;
-       
+
         public NodoGeneral<T> Raiz { get => raiz; set => raiz = value; }
         public void setRaiz(NodoGeneral<T> NuevaRaiz)
         {
@@ -45,7 +45,7 @@ namespace Trabajo_final_Comp
             return temp;
 
         }
-        
+
 
         public void agregarHijo(ArbolGeneral<T> hijo)
         {
@@ -72,13 +72,13 @@ namespace Trabajo_final_Comp
             int altura = 0;
             if (esHoja())
                 return 0;
-            foreach(ArbolGeneral<T> hy in this.getHijos())
+            foreach (ArbolGeneral<T> hy in this.getHijos())
             {
                 altura = Math.Max(altura, hy.altura());
-                
+
             }
 
-            return altura+1;
+            return altura + 1;
         }
 
 
@@ -92,19 +92,19 @@ namespace Trabajo_final_Comp
             else
             {
                 foreach (ArbolGeneral<T> h in getHijos())
-                    
+
                 {
-                   
+
                 }
             }
             return 0;
         }
 
-         public int ancho()
-            {
-                int ancho = 0;
-                return ancho;
-            }
+        public int ancho()
+        {
+            int ancho = 0;
+            return ancho;
+        }
         Cola<ArbolGeneral<int>> ColaAux = new Cola<ArbolGeneral<int>>();
         public void VerBeta(ArbolGeneral<int> Arbol)
         {
@@ -120,12 +120,28 @@ namespace Trabajo_final_Comp
                 }
             }
 
-            
-            
+
+
+        }
+        public void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
+        {
+            int nivel = 0;
+            Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
+            C.encolar(Raiz);
+            while (C.desencolar() != null)
+            {
+                nivel++;
+                foreach (NodoGeneral<int> arb in Raiz.getHijos())
+                {
+                    C.encolar(arb);
+                }
+                C.encolar(null);
+
+            }
+
+
         }
 
-        
     }
- 
 }
 //renzo.angeloro@gmail.com

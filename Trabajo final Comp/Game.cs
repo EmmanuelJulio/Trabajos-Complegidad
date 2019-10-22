@@ -72,11 +72,11 @@ namespace Trabajo_final_Comp
         {
             Console.WriteLine();
             Console.WriteLine("******************************Elija una opcion********************************");
-            Console.WriteLine("1)----------------------------Comenzar un juego nuevo-------------------------------"); 
+            Console.WriteLine("1)----------------------------Comenzar un juego nuevo-------------------------"); 
             Console.WriteLine("2)----------------------------Imprimir posibles resultados--------------------");
             Console.WriteLine("3)----------------------------Imprimir resultados a una profundidad-----------");
             Console.WriteLine("4)----------------------------Continuar juego anterior------------------------");
-            Console.WriteLine("*******************************************************************************");
+            Console.WriteLine("******************************************************************************");
             Console.WriteLine();
             int eleccion = Convert.ToInt32(Console.ReadLine());
             switch (eleccion)
@@ -101,7 +101,17 @@ namespace Trabajo_final_Comp
                     break;
 
                 case 3:
-                    Arbol.VerBeta(Arbol);
+                    Console.WriteLine("Ingrese un nivel");
+                    try
+                    {
+                         int Nivel = Convert.ToInt32(Console.ReadLine());
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("debe ingresar un valor numerico para seleccionar el nivel");
+                    }
+                    Arbol.RecorrerEnProfundidad(Arbol.Raiz, 3);
                     break;
                 case 4:
 

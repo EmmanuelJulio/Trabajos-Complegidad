@@ -45,10 +45,7 @@ namespace Trabajo_de_complegidad
         {
             this.Raiz.getHijos().Add(hijo.getRaiz());
         }
-        public void AgregarRecursivo()
-        {
-
-        }
+        
 
         public void eliminarHijo(ArbolGeneral<T> hijo)
         {
@@ -125,43 +122,26 @@ namespace Trabajo_de_complegidad
             }
             return Nuevo;
         }
-        public void RecorrerEnProfundidad(NodoGeneral<T> Raiz)
+      
+        public  void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
         {
-            NodoGeneral<T> Aux = Raiz;
-            NodoGeneral<T> Anterior = Raiz;
-            if (Raiz.getHijos().Count == 0)
-                Console.Write(Raiz.getDato());
-            while (Aux.getHijos().Count != 0)
+            int nivel = 0;
+            Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
+            C.encolar(Raiz);
+            while (C.desencolar() != null)
             {
-                foreach(NodoGeneral<T> NodoRecorrido in Aux.getHijos())
+                nivel++;
+                foreach (NodoGeneral<int> arb in Raiz.getHijos())
                 {
-                    Aux = NodoRecorrido;
+                    C.encolar(arb);
                 }
+                C.encolar(null);
+               
             }
-            foreach (NodoGeneral<T> Ante in Anterior.getHijos())
-            {
-                Console.Write(Ante.getDato());
-                RecorrerEnProfundidad(Aux);
-            }
+
+
         }
-        public void RecorrerEnProfundidad2(NodoGeneral<T> Raiz)
-        {
-            NodoGeneral<T> anterior = Raiz;
-            NodoGeneral<T> Aux = Raiz;
-            if (Raiz.getHijos() != null)
-            {
-                foreach(NodoGeneral<T> nodo in anterior.getHijos())
-                {
-                    cola.encolar(nodo);
-                    Aux = nodo;
-                    RecorrerEnProfundidad2(Aux);
-                }
-            }
-            for (int i = 0; cola.esVacia() != true; i++)
-            {
-                Console.Write(cola.desencolar().getDato());
-            }
-        }
+        
     }
 }
 //renzo.angeloro@gmail.com
