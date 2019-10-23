@@ -130,16 +130,28 @@ namespace Trabajo_final_Comp
             C.encolar(Raiz);
             while (C.desencolar() != null)
             {
-                nivel++;
-                foreach (NodoGeneral<int> arb in Raiz.getHijos())
+                if(nivel == Nbuscado)
                 {
-                    C.encolar(arb);
+                    while (C.desencolar() != null)
+                    {
+                        Console.WriteLine(C.desencolar().getDato());
+                    }
                 }
-                C.encolar(null);
+                else
+                {
+                    nivel++;
+                    C.encolar(null);
+                    foreach (NodoGeneral<int> arb in Raiz.getHijos())
+                    {
+                        RecorrerEnProfundidad(arb, Nbuscado);
+                    }
+                    
+
+                }
+                
 
             }
-
-
+  
         }
 
     }

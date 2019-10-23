@@ -76,7 +76,7 @@ namespace Trabajo_de_complegidad
             return altura+1;
         }
 
-         static int aux;
+        
         Cola<NodoGeneral<T>> cola = new Cola<NodoGeneral<T>>();
 
         public NodoGeneral<T> Raiz { get => raiz; set => raiz = value; }
@@ -141,7 +141,18 @@ namespace Trabajo_de_complegidad
 
 
         }
-        
+
+        internal void recorridoPreorden(ArbolGeneral<int> abb)
+        {
+            Console.WriteLine(abb.getDatoRaiz());
+            foreach(ArbolGeneral<int> Nd in abb.getHijos())
+            {
+                while (abb.getHijos() != null)
+                {
+                    Nd.recorridoPreorden(Nd);
+                }
+            }
+        }
     }
 }
 //renzo.angeloro@gmail.com

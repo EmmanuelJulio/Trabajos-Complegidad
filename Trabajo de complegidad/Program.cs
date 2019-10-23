@@ -112,7 +112,7 @@ namespace Trabajo_de_complegidad
                         Console.WriteLine("");
                         break;
                     case 3:
-                        
+                        abb.recorridoPreorden(abb);
                         break;
                     case 4:
                         
@@ -127,8 +127,8 @@ namespace Trabajo_de_complegidad
 
                         break;
                     case 7:
-                        abb.RecorrerEnProfundidad2(abb.Raiz);
-                        Console.WriteLine(" ");
+                        //abb.RecorrerEnProfundidad(abb.Raiz);
+                        //Console.WriteLine(" ");
                         break;
                 }
             }

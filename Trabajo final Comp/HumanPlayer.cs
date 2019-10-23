@@ -44,7 +44,7 @@ namespace Trabajo_final_Comp
 			Console.WriteLine();
 			if (!random_card) {
 				Console.Write("Ingrese naipe:");
-				string entrada = Console.ReadLine();
+			string entrada = Console.ReadLine();
 				
 				Int32.TryParse(entrada, out carta);
 				while (!naipes.Contains(carta)) {

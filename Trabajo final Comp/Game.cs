@@ -102,16 +102,8 @@ namespace Trabajo_final_Comp
 
                 case 3:
                     Console.WriteLine("Ingrese un nivel");
-                    try
-                    {
-                         int Nivel = Convert.ToInt32(Console.ReadLine());
-                    }
-                    catch (Exception)
-                    {
-
-                        Console.WriteLine("debe ingresar un valor numerico para seleccionar el nivel");
-                    }
-                    Arbol.RecorrerEnProfundidad(Arbol.Raiz, 3);
+                    int Nivel = Convert.ToInt32(Console.ReadLine());
+                    Arbol.RecorrerEnProfundidad(Arbol.Raiz, Nivel);
                     break;
                 case 4:
 
@@ -137,9 +129,11 @@ namespace Trabajo_final_Comp
 		
 		public void play()
 		{
-            Console.WriteLine("Se ha comenzado un nuevo juego en cualquier momento puede disponer de uno nuevo asi mismo ,podra ejecutar algunas acciones ");
-            Console.WriteLine("oprimiendo una tecla durante la cuenta regresiva");
-                
+            Console.WriteLine("Se ha comenzado un nuevo juego en cualquier momento puede disponer de uno nuevo asimismo ,podrá ejecutar algunas acciones ");
+            Console.WriteLine("Durante el desarrollo del juego");
+
+
+
                 while (!this.fin()) {
 				this.printScreen();
 				this.turn(player2, player1, naipesHuman); // Juega el usuario
