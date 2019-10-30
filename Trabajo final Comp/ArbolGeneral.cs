@@ -126,11 +126,10 @@ namespace Trabajo_final_Comp
         public static Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
         public void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
         {
-            int NivelActual = 0;
             C.encolar(Raiz);
             while (C.tope() != null)
             {
-                if (NivelActual == Nbuscado)
+                if (Nbuscado==0)
                 {
                     while (C.tope() != null)
                     {
@@ -139,11 +138,12 @@ namespace Trabajo_final_Comp
                 }
                 else
                 {
-                    C.encolar(null);
+                    
                     foreach(NodoGeneral<int> Nod in Raiz.getHijos())
                     {
-                        RecorrerEnProfundidad(Nod, Nbuscado-1);
+                        
                     }
+                    C.encolar(null);
                 }
 
             }
