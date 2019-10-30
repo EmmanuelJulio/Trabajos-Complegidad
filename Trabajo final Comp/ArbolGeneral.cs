@@ -123,32 +123,28 @@ namespace Trabajo_final_Comp
 
 
         }
+        public static Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
         public void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
         {
-            int nivel = 0;
-            Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
+            int NivelActual = 0;
             C.encolar(Raiz);
-            while (C.desencolar() != null)
+            while (C.tope() != null)
             {
-                if(nivel == Nbuscado)
+                if (NivelActual == Nbuscado)
                 {
-                    while (C.desencolar() != null)
+                    while (C.tope() != null)
                     {
-                        Console.WriteLine(C.desencolar().getDato());
+                        Console.Write(C.desencolar().getDato());
                     }
                 }
                 else
                 {
-                    nivel++;
                     C.encolar(null);
-                    foreach (NodoGeneral<int> arb in Raiz.getHijos())
+                    foreach(NodoGeneral<int> Nod in Raiz.getHijos())
                     {
-                        RecorrerEnProfundidad(arb, Nbuscado);
+                        RecorrerEnProfundidad(Nod, Nbuscado-1);
                     }
-                    
-
                 }
-                
 
             }
   

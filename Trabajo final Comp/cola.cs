@@ -24,7 +24,16 @@ namespace Trabajo_final_Comp
 
         public T tope()
         {
-            return this.datos[0];
+            if (this.datos[0].Equals(null))
+            {
+                return default(T);
+            }
+            else
+            {
+                T temp = this.datos[0];
+                return temp;
+            }
+           
         }
 
         public bool esVacia()
