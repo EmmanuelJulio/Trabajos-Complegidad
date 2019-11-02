@@ -82,73 +82,15 @@ namespace Trabajo_final_Comp
         }
 
 
-        public int nivel(T dato)
-        {
-
-            if (this.getDatoRaiz().Equals(dato))
-            {
-                return 0;
-            }
-            else
-            {
-                foreach (ArbolGeneral<T> h in getHijos())
-
-                {
-
-                }
-            }
-            return 0;
-        }
+        
 
         public int ancho()
         {
             int ancho = 0;
             return ancho;
         }
-        Cola<ArbolGeneral<int>> ColaAux = new Cola<ArbolGeneral<int>>();
-        public void VerBeta(ArbolGeneral<int> Arbol)
-        {
-            ColaAux.encolar(Arbol);
-            while (!ColaAux.esVacia())
-            {
-                ArbolGeneral<int> aux = ColaAux.desencolar();
-                foreach (ArbolGeneral<int> nodo in aux.getHijos())
-                {
-                    VerBeta(nodo);
-                    ColaAux.encolar(nodo);
-                    Console.WriteLine(nodo.getDatoRaiz() + " " + nodo.raiz.Beta);
-                }
-            }
 
-
-
-        }
-        public static Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
-        public void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
-        {
-            C.encolar(Raiz);
-            while (C.tope() != null)
-            {
-                if (Nbuscado==0)
-                {
-                    while (C.tope() != null)
-                    {
-                        Console.Write(C.desencolar().getDato());
-                    }
-                }
-                else
-                {
-                    
-                    foreach(NodoGeneral<int> Nod in Raiz.getHijos())
-                    {
-                        
-                    }
-                    C.encolar(null);
-                }
-
-            }
-  
-        }
+       
 
     }
 }

@@ -103,7 +103,7 @@ namespace Trabajo_final_Comp
                 case 3:
                     Console.WriteLine("Ingrese un nivel");
                     int Nivel = Convert.ToInt32(Console.ReadLine());
-                    Arbol.RecorrerEnProfundidad(Arbol.Raiz, Nivel);
+                    RecorrerEnProfundidad(Arbol.Raiz, Nivel);
                     break;
                 case 4:
 
@@ -161,7 +161,35 @@ namespace Trabajo_final_Comp
             }
 
         }
-		
-		
-	}
+        public static Cola<NodoGeneral<int>> C = new Cola<NodoGeneral<int>>();
+        public static Cola<NodoGeneral<int>> C2 = new Cola<NodoGeneral<int>>();
+        public static void RecorrerEnProfundidad(NodoGeneral<int> Raiz, int Nbuscado)
+        {
+            int nivel =0;
+            C.encolar(Raiz);
+            while (C.tope() != null)
+            {
+                if (nivel == Nbuscado)
+                {
+                    while (C.tope() !=null)
+                    {
+                        Console.Write(C.desencolar().getDato() + ", ");
+                    }
+                }
+               
+                foreach (NodoGeneral<int> nod in C.desencolar().getHijos())
+                    {
+                        C2.encolar(nod);
+                    }
+                C = C2;
+                nivel++;
+                C.encolar(null);
+
+
+            }
+
+        }
+
+
+    }
 }

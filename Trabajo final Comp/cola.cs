@@ -10,27 +10,29 @@ namespace Trabajo_final_Comp
 
         private List<T> datos = new List<T>();
 
+        public List<T> Datos { get => datos; set => datos = value; }
+
         public void encolar(T elem)
         {
-            this.datos.Add(elem);
+            this.Datos.Add(elem);
         }
 
         public T desencolar()
         {
-            T temp = this.datos[0];
-            this.datos.RemoveAt(0);
+            T temp = this.Datos[0];
+            this.Datos.RemoveAt(0);
             return temp;
         }
 
         public T tope()
         {
-            if (this.datos[0].Equals(null))
+            if (this.Datos[0].Equals(null))
             {
                 return default(T);
             }
             else
             {
-                T temp = this.datos[0];
+                T temp = this.Datos[0];
                 return temp;
             }
            
@@ -38,7 +40,7 @@ namespace Trabajo_final_Comp
 
         public bool esVacia()
         {
-            return this.datos.Count == 0;
+            return this.Datos.Count == 0;
         }
     }
 }
