@@ -167,29 +167,31 @@ namespace Trabajo_final_Comp
         {
             int nivel =0;
             C.encolar(Raiz);
-            while (C.tope() != null)
+            while (!C.esVacia())
             {
-                if (nivel == Nbuscado)
+                    if (nivel == Nbuscado)
                 {
-                    while (C.tope() !=null)
+                    while (!C.esVacia())
                     {
                         Console.Write(C.desencolar().getDato() + ", ");
                     }
                 }
-               
-                foreach (NodoGeneral<int> nod in C.desencolar().getHijos())
+                int logn = C.Datos.Count;
+                for (int i =0; i<logn; i++)
+                {
+                    foreach (NodoGeneral<int> nod in C.desencolar().getHijos())
                     {
-                        C2.encolar(nod);
+                        C.encolar(nod);
                     }
-                C = C2;
+                }
                 nivel++;
-                C.encolar(null);
-
-
+                
             }
 
         }
+       
 
 
     }
+    
 }
